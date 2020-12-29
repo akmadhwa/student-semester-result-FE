@@ -26,5 +26,5 @@ CheckList
   - [x] View subjects and marks based on semester.
 - Admin
   - [x] Show student’s result.
-  - [] Generate students report in pdf.
-  - [] Add/edit/delete student, semester, subject and marks.
+  - [ ] Generate students report in pdf.
+  - [ ] Add/edit/delete student, semester, subject and marks.
