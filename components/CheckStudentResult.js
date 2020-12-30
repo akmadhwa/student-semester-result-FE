@@ -9,14 +9,14 @@ import {
 import { useEffect, useState } from "react";
 import withAuth from "./withAuth";
 import { callApiWithAuth } from "../helpers/axios";
-import StudentResultTable from "./StudentResultTable";
+import AdminResultTable from "./AdminResultTable";
 
-const StudentResult = () => {
+const StudentResult = ({ userData }) => {
   const [semester, setSemester] = useState();
   const [studentId, setStudentId] = useState();
   const [studentList, setStudentList] = useState([]);
   const [semesterList, setSemesterList] = useState();
-  const [semesterResult, setSemesterResult] = useState();
+  const [semesterResult, setSemesterResult] = useState([]);
 
   useEffect(async () => {
     const { data } = await callApiWithAuth.get("/v1/student");
@@ -33,6 +33,7 @@ const StudentResult = () => {
       callApiWithAuth
         .get(`/v1/student/semester/${event.target.value}`)
         .then((result) => {
+          console.log(result.data.data);
           setSemesterList(result.data.data);
         });
     }
@@ -44,8 +45,8 @@ const StudentResult = () => {
       callApiWithAuth
         .get(`/v1/student/${studentId}/semester/${event.target.value}`)
         .then((result) => {
-          setSemesterResult(result.data.data);
           console.log(result.data.data);
+          setSemesterResult(result.data.data);
         });
     }
   };
@@ -84,7 +85,12 @@ const StudentResult = () => {
       )}
 
       {semesterResult && (
-        <StudentResultTable resultData={semesterResult} semester={semester} />
+        <AdminResultTable
+          resultData={semesterResult}
+          semester={semester}
+          setSemesterResult={setSemesterResult}
+          studentId={studentId}
+        />
       )}
     </Box>
   );

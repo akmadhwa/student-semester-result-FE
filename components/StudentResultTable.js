@@ -29,15 +29,6 @@ const StudentResultTable = ({ resultData, semester }) => {
               </Tr>
             );
           })}
-
-        {/* <Tr>
-          <Td>feet</Td>
-          <Td isNumeric>30.48</Td>
-        </Tr>
-        <Tr>
-          <Td>yards</Td>
-          <Td isNumeric>0.91444</Td>
-        </Tr> */}
       </Tbody>
     </Table>
   );
