@@ -12,6 +12,8 @@ import {
   Button,
   useToast,
 } from "@chakra-ui/react";
+import { useState } from "react";
+import EditStudentMarkModal from "./modals/EditStudentMarkModal";
 
 const AdminResultTable = ({
   resultData,
@@ -20,6 +22,8 @@ const AdminResultTable = ({
   studentId,
 }) => {
   const toast = useToast();
+  const [isOpenEditModal, setIsOpenEditModal] = useState(false);
+  const [currentEditedSubject, setCurrentEditedSubject] = useState([]);
 
   const handleDeleteSubject = (subjectId) => {
     callApiWithAuth
@@ -40,7 +44,25 @@ const AdminResultTable = ({
         });
       });
   };
-  const handelUpdateMarks = (subjectId) => {};
+  const handelUpdateMarks = (subjectId) => {
+    let subjectInfo = resultData.filter(
+      (item) => item.subject_id === subjectId
+    );
+    setCurrentEditedSubject(subjectInfo[0]);
+
+    setIsOpenEditModal(!isOpenEditModal);
+  };
+
+  const editSubjectGrade = (subjectId, newGrade) => {
+    const result = resultData.map((data) => {
+      if (data.subject_id === subjectId) {
+        data.grade = newGrade;
+      }
+
+      return data;
+    });
+    setSemesterResult(result);
+  };
 
   return (
     <Table variant="simple" mt="20px">
@@ -83,6 +105,14 @@ const AdminResultTable = ({
             );
           })}
       </Tbody>
+      <EditStudentMarkModal
+        isOpen={isOpenEditModal}
+        setIsOpen={setIsOpenEditModal}
+        selectedData={currentEditedSubject}
+        studentId={studentId}
+        semester={semester}
+        editSubjectGrade={editSubjectGrade}
+      />
     </Table>
   );
 };

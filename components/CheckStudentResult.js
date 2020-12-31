@@ -21,7 +21,6 @@ const StudentResult = ({ userData }) => {
   useEffect(async () => {
     const { data } = await callApiWithAuth.get("/v1/student");
     setStudentList(data.data);
-    console.log(data.data);
   }, []);
 
   const handleStudentChange = (event) => {
@@ -33,7 +32,6 @@ const StudentResult = ({ userData }) => {
       callApiWithAuth
         .get(`/v1/student/semester/${event.target.value}`)
         .then((result) => {
-          console.log(result.data.data);
           setSemesterList(result.data.data);
         });
     }
@@ -45,7 +43,6 @@ const StudentResult = ({ userData }) => {
       callApiWithAuth
         .get(`/v1/student/${studentId}/semester/${event.target.value}`)
         .then((result) => {
-          console.log(result.data.data);
           setSemesterResult(result.data.data);
         });
     }
