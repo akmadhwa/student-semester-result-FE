@@ -41,7 +41,6 @@ export default function login() {
         window.location.replace("/");
       })
       .catch(function (error) {
-        console.log(error);
         setError("Email or password is wrong");
       });
   };
