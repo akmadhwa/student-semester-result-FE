@@ -28,9 +28,6 @@ const EditStudentMarkModal = ({
   const [grade, setGrade] = useState();
 
   const handleUpdateMarks = () => {
-    // if (0 > grade > 100) {
-    //
-    // }
     callApiWithAuth
       .patch(
         `/v1/student/${studentId}/semester/${semester}/subject/${selectedData.subject_id}`,
