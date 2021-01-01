@@ -45,7 +45,7 @@ export default (WrappedComponent) => {
     } else if (WrappedComponent.getInitialProps) {
       const wrappedProps = await WrappedComponent.getInitialProps({
         ...context,
-        auth: userData,
+        userData: userData,
       });
       return { ...wrappedProps, userData };
     }
