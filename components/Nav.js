@@ -63,6 +63,7 @@ const Header = ({ userData }) => {
         ) : (
           <>
             <MenuItems link="/">Dashboard</MenuItems>
+            <MenuItems link="/student">Student</MenuItems>
             <MenuItems link="/subject">Subject</MenuItems>
           </>
         )}
