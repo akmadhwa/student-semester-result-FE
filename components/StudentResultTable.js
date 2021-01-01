@@ -21,23 +21,14 @@ const StudentResultTable = ({ resultData, semester }) => {
       </Thead>
       <Tbody>
         {resultData &&
-          Object.keys(resultData).map((key) => {
+          resultData.map((data) => {
             return (
-              <Tr key={key}>
-                <Td>{key}</Td>
-                <Td isNumeric>{resultData[key]}</Td>
+              <Tr key={data.subject_id}>
+                <Td>{data.subject.name}</Td>
+                <Td isNumeric>{data.grade}</Td>
               </Tr>
             );
           })}
-
-        {/* <Tr>
-          <Td>feet</Td>
-          <Td isNumeric>30.48</Td>
-        </Tr>
-        <Tr>
-          <Td>yards</Td>
-          <Td isNumeric>0.91444</Td>
-        </Tr> */}
       </Tbody>
     </Table>
   );

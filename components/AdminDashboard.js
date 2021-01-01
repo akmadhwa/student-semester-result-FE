@@ -15,7 +15,7 @@ const AdminDashboard = ({ userData }) => {
           </Tag>
         </Heading>
       </Box>
-      <CheckStudentResult />
+      <CheckStudentResult userData={userData} />
     </Box>
   );
 };
