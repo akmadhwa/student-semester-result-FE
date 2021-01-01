@@ -11,10 +11,10 @@ import withAuth from "./withAuth";
 import { callApiWithAuth } from "../helpers/axios";
 import StudentResultTable from "./StudentResultTable";
 
-const StudentResult = ({ studentid }) => {
+const StudentResult = ({ studentId }) => {
   const [semester, setSemester] = useState("");
   const [semesterList, setSemesterList] = useState([]);
-  const [semesterResult, setSemesterResult] = useState({});
+  const [semesterResult, setSemesterResult] = useState([]);
 
   useEffect(async () => {
     const { data } = await callApiWithAuth.get("/v1/user/semester");
@@ -29,7 +29,6 @@ const StudentResult = ({ studentid }) => {
         .get(`/v1/user/semester-result/${event.target.value}`)
         .then((result) => {
           setSemesterResult(result.data.data);
-          //   console.log(semesterResult);
         });
     }
   };
