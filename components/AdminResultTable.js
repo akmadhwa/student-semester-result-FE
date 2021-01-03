@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import EditStudentMarkModal from "./modals/EditStudentMarkModal";
-import DeleteSemesterAlert from "./alert/DeleteSemesterAlert";
+import DeleteAlert from "./alert/DeleteAlert";
 
 const AdminResultTable = ({
   resultData,
@@ -146,9 +146,10 @@ const AdminResultTable = ({
           semester={semester}
           editSubjectGrade={editSubjectGrade}
         />
-        <DeleteSemesterAlert
+        <DeleteAlert
           isOpen={isOpenDeleteSemesterAlert}
           setIsOpen={setIsOpenDeleteSemesterAlert}
+          alertTitle="Are you sure to delete"
           handleDelete={() => handleDeleteSemester(studentId, semester)}
         />
       </Table>

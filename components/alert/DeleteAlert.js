@@ -9,13 +9,13 @@ import {
 } from "@chakra-ui/react";
 import { useRef } from "react";
 
-const DeleteSemesterAlert = ({ isOpen, setIsOpen, handleDelete }) => {
+const DeleteAlert = ({ isOpen, setIsOpen, alertTitle, handleDelete }) => {
   return (
     <AlertDialog isOpen={isOpen}>
       <AlertDialogOverlay>
         <AlertDialogContent>
           <AlertDialogHeader fontSize="lg" fontWeight="bold">
-            Delete Semester
+            {alertTitle}
           </AlertDialogHeader>
 
           <AlertDialogBody>
@@ -34,4 +34,4 @@ const DeleteSemesterAlert = ({ isOpen, setIsOpen, handleDelete }) => {
   );
 };
 
-export default DeleteSemesterAlert;
+export default DeleteAlert;
