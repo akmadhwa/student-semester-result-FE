@@ -10,12 +10,14 @@ import {
   Flex,
   IconButton,
   Icon,
+  Button,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import DeleteAlert from "./alert/DeleteAlert";
 import EditStudentModal from "./modals/EditStudentModal";
+import { BiPlus } from "react-icons/bi";
 
 const StudentList = ({
   studentData,
